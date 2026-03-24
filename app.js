@@ -42,18 +42,26 @@ function hideMessage() {
     authMessage.style.display = 'none';
 }
 
+const authTitle = document.getElementById('auth-title');
+const authSubtitle = document.getElementById('auth-subtitle');
+const authBtnText = document.getElementById('auth-btn-text');
+
 authToggleLink.addEventListener('click', e => {
     e.preventDefault();
     isLoginMode = !isLoginMode;
     hideMessage();
     if (isLoginMode) {
-        authSubmitBtn.textContent = 'Giriş Yap';
+        authTitle.textContent = 'Hos Geldiniz';
+        authSubtitle.textContent = 'Devam etmek icin giris yapın';
+        authBtnText.textContent = 'Giris Yap';
         authToggleText.textContent = 'Hesabınız yok mu?';
         authToggleLink.textContent = 'Kayıt Ol';
     } else {
-        authSubmitBtn.textContent = 'Kayıt Ol';
+        authTitle.textContent = 'Hesap Olustur';
+        authSubtitle.textContent = 'Hemen ucretsiz kayıt olun';
+        authBtnText.textContent = 'Kayıt Ol';
         authToggleText.textContent = 'Zaten hesabınız var mı?';
-        authToggleLink.textContent = 'Giriş Yap';
+        authToggleLink.textContent = 'Giris Yap';
     }
 });
 
