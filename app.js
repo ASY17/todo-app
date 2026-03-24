@@ -71,10 +71,21 @@ authForm.addEventListener('submit', async e => {
     const email = authEmail.value.trim();
     const password = authPassword.value;
 
-    if (isLoginMode) {
-        await login(email, password);
-    } else {
-        await signup(email, password);
+    authSubmitBtn.disabled = true;
+    const originalText = authBtnText.textContent;
+    authBtnText.textContent = 'Bekleyin...';
+
+    try {
+        if (isLoginMode) {
+            await login(email, password);
+        } else {
+            await signup(email, password);
+        }
+    } finally {
+        if (!isLoginMode || !accessToken) {
+            authSubmitBtn.disabled = false;
+            authBtnText.textContent = originalText;
+        }
     }
 });
 
