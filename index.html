@@ -7,8 +7,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <!-- Auth Ekranı -->
+    <div class="container" id="auth-container">
         <h1>Yapılacaklar Listesi</h1>
+        <div id="auth-message" class="auth-message" style="display:none;"></div>
+        <form id="auth-form">
+            <input type="email" id="auth-email" placeholder="E-posta adresi" required>
+            <input type="password" id="auth-password" placeholder="Şifre (min 6 karakter)" minlength="6" required>
+            <button type="submit" id="auth-submit-btn">Giriş Yap</button>
+        </form>
+        <p class="auth-toggle">
+            <span id="auth-toggle-text">Hesabınız yok mu?</span>
+            <a href="#" id="auth-toggle-link">Kayıt Ol</a>
+        </p>
+    </div>
+
+    <!-- Todo Ekranı -->
+    <div class="container" id="todo-container" style="display:none;">
+        <div class="header-row">
+            <h1>Yapılacaklar Listesi</h1>
+            <button id="logout-btn">Çıkış</button>
+        </div>
+        <p id="user-email" class="user-email"></p>
         <form id="todo-form">
             <input type="text" id="todo-input" placeholder="Yeni görev ekle..." autocomplete="off">
             <button type="submit">Ekle</button>
